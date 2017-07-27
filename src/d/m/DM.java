@@ -5,6 +5,8 @@
  */
 package d.m;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Student
@@ -42,7 +44,11 @@ public class DM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Zadej rodne cislo:");
+        
     }
     public static void kontroladelitelnosti11() {
         byte[] aPole = new byte[10];
@@ -55,7 +61,7 @@ public class DM {
     public static void muzZena() {
         byte[] aPole = new byte[10];
 
-        if ((aPole[3] == 5) || (aPole[3] == 4)) {
+        if ((aPole[3] == 5) || (aPole[3] == 6)) {
             System.out.println("zena");
         }
         else if ((aPole[3] == 0) || (aPole[3] == 1)) {
