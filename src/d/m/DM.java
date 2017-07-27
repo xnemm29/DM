@@ -20,7 +20,7 @@ public class DM {
                 System.out.println("Chyba: nezadal jsi 10 číslic");
                 pom = false;
             }
-            return pom;
+            return pom; 
         }
 
     //převedení na pole longů s kontrolou, jsou-li to čísla    
@@ -32,6 +32,7 @@ public class DM {
                 if (poleCharu[i]<'0' || poleCharu[i]>'9') {
                     System.out.println("Chyba: nezadal jsi 10 číslic");
                     aPole[10] = 0;
+                    return aPole;
                 } else {
                     aPole[i] = (byte) poleCharu[i];
                 }
@@ -44,10 +45,28 @@ public class DM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+        String a;       //sem zadáme RČ
+        boolean pom;
+        byte [] aPole = new byte [11];
+        
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Zadej rodne cislo:");
+        a = sc.nextLine();
+        
+        pom = zkontrolujDelku(a);
+        if (pom == false){
+            return;
+        }
+        
+        aPole = prevedNaPole(a);
+        if (aPole[10] == 0){
+            return;
+        }
+        
+        kontroladelitelnosti11();  //tato funkce zároveň provede i určení pohlaví
+        
+        
         
     }
     public static void kontroladelitelnosti11() {
@@ -55,6 +74,9 @@ public class DM {
 
         if ((aPole[0] + aPole[2] + aPole[4] + aPole[6] + aPole[8]) == (aPole[1] + aPole[3] + aPole[5] + aPole[7] + aPole[9])) {
             System.out.println("je to rodne cislo");
+            muzZena ();
+        } else {
+            System.out.println("neni to rodne cislo");
         }
     }
 
