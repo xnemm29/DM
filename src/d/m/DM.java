@@ -34,7 +34,7 @@ public class DM {
                     aPole[10] = 0;
                     return aPole;
                 } else {
-                    aPole[i] = (byte) poleCharu[i];
+                    aPole[i] = (byte) ((byte) poleCharu[i] -48);
                 }
             }
             return aPole;
