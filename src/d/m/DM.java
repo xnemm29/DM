@@ -64,29 +64,29 @@ public class DM {
             return;
         }
         
-        kontroladelitelnosti11();  //tato funkce zároveň provede i určení pohlaví
+        kontroladelitelnosti11(aPole);  //tato funkce zároveň provede i určení pohlaví
         
         
         
     }
-    public static void kontroladelitelnosti11() {
-        byte[] aPole = new byte[10];
+    public static void kontroladelitelnosti11(byte[] aPole) {
+        
 
         if ((aPole[0] + aPole[2] + aPole[4] + aPole[6] + aPole[8]) == (aPole[1] + aPole[3] + aPole[5] + aPole[7] + aPole[9])) {
             System.out.println("je to rodne cislo");
-            muzZena ();
+            muzZena (aPole);
         } else {
             System.out.println("neni to rodne cislo");
         }
     }
 
-    public static void muzZena() {
-        byte[] aPole = new byte[10];
+    public static void muzZena(byte[] aPole) {
+        
 
-        if ((aPole[3] == 5) || (aPole[3] == 6)) {
+        if ((aPole[2] == 5) || (aPole[2] == 6)) {
             System.out.println("zena");
         }
-        else if ((aPole[3] == 0) || (aPole[3] == 1)) {
+        else if ((aPole[2] == 0) || (aPole[2] == 1)) {
             System.out.println("muz");
         }
         else {System.out.println("neplatne cislo");}
