@@ -23,7 +23,7 @@ public class DM {
             return pom; 
         }
 
-    //převedení na pole longů s kontrolou, jsou-li to čísla    
+    //převedení na pole bytů s kontrolou, jsou-li to čísla    
         public static byte[] prevedNaPole (String a) {
             char [] poleCharu = a.toCharArray();
             byte [] aPole = new byte [11];
@@ -54,6 +54,8 @@ public class DM {
         System.out.println("Zadej rodne cislo:");
         a = sc.nextLine();
         
+        a = a.replaceAll("\\D", "");
+        
         pom = zkontrolujDelku(a);
         if (pom == false){
             return;
@@ -72,7 +74,9 @@ public class DM {
     public static void kontroladelitelnosti11(byte[] aPole) {
         
 
-        if ((aPole[0] + aPole[2] + aPole[4] + aPole[6] + aPole[8]) == (aPole[1] + aPole[3] + aPole[5] + aPole[7] + aPole[9])) {
+        if ( ((aPole[0] + aPole[2] + aPole[4] + aPole[6] + aPole[8]) 
+            - (aPole[1] + aPole[3] + aPole[5] + aPole[7] + aPole[9]))%11 ==0 ) {
+            
             System.out.println("je to rodne cislo");
             muzZena (aPole);
         } else {
